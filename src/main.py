@@ -57,4 +57,4 @@ async def on_message(message: discord.Message):
         if os.path.exists(file):
             os.remove(file)
 
-client.run('ODc4NDc2MTc1OTIyNTkzODEz.YSBusQ.UruWQ73b7I9fSYRpUrbJCiT60hM')
+client.run(TOKEN_HERE)
