@@ -1,0 +1,6 @@
+
+class QuestionNotDetected(Exception): 
+    ...
+
+class InvalidPart(Exception): 
+    ...
