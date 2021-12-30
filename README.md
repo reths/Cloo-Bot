@@ -19,6 +19,16 @@ After installation, include the path in [src/imageman/processing](https://github
 
 ## Usage
 
-## Problems
+In each command, you will be given information about which contest and year the question is from.
 
-## TO-DO
+`cloo give me random` gives you a random question from a random contest.
+
+`cloo give me random [contest name]` gives you a random question from the contest specified.
+
+`cloo give me [contest name] [year] (question) [question number]` gives you the exact question from the contest specified.
+
+**Note**: `(question)` indicates that "question" is optional.
+
+## Implementation Details
+
+## Problems
