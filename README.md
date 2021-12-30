@@ -1,9 +1,9 @@
 # Cloo-Bot
 Cloo-Bot provides you with a fast and efficient way to view specific or randomized Waterloo Math Contest questions that you can use to practice with your friends or yourself.
 
-![Completely random contest question](https://media.giphy.com/media/SeP4qW7av1zNndKL0B/giphy.gif)
-![Random question from a specific contest](https://media.giphy.com/media/csUD29rKvYCoqB62aQ/giphy.gif)
-![Specific question from a contest](https://media.giphy.com/media/u8Q4KYlnntddFNSZ9N/giphy.gif)
+![Completely random contest question](https://user-images.githubusercontent.com/89747038/147791158-f003031e-dcad-4104-ba5c-7f0bd3a80af0.gif)
+![Random question from a specific contest](https://user-images.githubusercontent.com/89747038/147791170-d2a15832-067f-4452-adad-e283d68b9375.gif)
+![Specific question from a contest](https://user-images.githubusercontent.com/89747038/147791127-772ff013-d9ec-412c-9743-0aba143b552c.gif)
 
 ## Setup
 
