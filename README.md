@@ -39,11 +39,11 @@ In each command, you will be given information about which contest and year the 
 
 ![Horizontal and Vertical Margin used to crop the page](https://user-images.githubusercontent.com/89747038/147799501-e977e17d-2101-4654-bce7-ba93071d1a48.png)
 
-We have to use OCR on the cropped image at the right to see where the questions are, however `pytesseract`'s OCR will not work on this due to the lines present in the box. So to remove that, the [`sanitize`](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/utility.py#L140) function is [used](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/processing.py#L40) which will remove any such boxes through contour detection in opencv. After which the cropped image will look similar to the following:
+OCR is used on the cropped image at the right to see where the questions are, however `pytesseract`'s OCR will not work on this due to the lines present in the box. So to remove that, the [`sanitize`](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/utility.py#L140) function is [used](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/processing.py#L40) which will remove any such boxes through contour detection in opencv. After which the cropped image will look similar to the following:
 
 ![Sanitized version of the cropped image](https://user-images.githubusercontent.com/89747038/147800397-7cdba512-8972-4ecd-8d33-a195dae9a6fc.png)
 
-Once this is done, `pytesseract` gives a string result, which is parsed through [`parse_data`](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/utility.py#L82). Finally, the parsed results are used to find the location of the question (and the [next](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/processing.py#L57) question), through which the wanted question is [cropped](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/processing.py#L82) and sent to the user on discord.
+4. `pytesseract` gives a string result, which is parsed through [`parse_data`](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/utility.py#L82). Finally, the parsed result is used to find the location of the question (and the [next question](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/processing.py#L57)), through which the wanted question is [cropped](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/processing.py#L82) and sent to the user on discord.
 
 ## Problems
 
