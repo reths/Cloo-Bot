@@ -35,4 +35,16 @@ In each command, you will be given information about which contest and year the 
 
 2. The main algorithm requires information about page margins which cannot be found through PDFs, however, it is possible to approximate where the margins may be through heuristics if it were an image instead. So the [`to_image`](https://github.com/reths/Cloo-Bot/blob/54cd8f98b267b5902c349c070d92d31153ceb237/src/imageman/utility.py#L9) function is used to convert the PDF pages into images. Unnecessary pages such as the first and last are removed in the case their margins may heavily disrupt the average margin size. The [`is_unnecessary`](https://github.com/reths/Cloo-Bot/blob/54cd8f98b267b5902c349c070d92d31153ceb237/src/imageman/utility.py#L167) function is responsible for this and uses heuristics to determine if the pages should be removed.
 
+3. In the scenario of a simple contest PDF (each contest has varying formats and that is one of the problems that will be discussed) such as the [2021 Pascal Contest](https://www.cemc.uwaterloo.ca/contests/past_contests/2021/2021PascalContest.pdf) the `horizontal_margin` and `vertial_margin` functions will be used to find the best left-margin that could be used throughout all the pages. The location is then used to crop the page as shown in the illustration:
+
+![Horizontal and Vertical Margin used to crop the page](https://user-images.githubusercontent.com/89747038/147799501-e977e17d-2101-4654-bce7-ba93071d1a48.png)
+
+We have to use OCR on the cropped image at the right to see where the questions are, however `pytesseract`'s OCR will not work on this due to the lines present in the box. So to remove that, the [`sanitize`](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/utility.py#L140) function is [used](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/processing.py#L40) which will remove any such boxes through contour detection in opencv. After which the cropped image will look similar to the following:
+
+![Sanitized version of the cropped image](https://user-images.githubusercontent.com/89747038/147800397-7cdba512-8972-4ecd-8d33-a195dae9a6fc.png)
+
+Once this is done, `pytesseract` gives a string result, which is parsed through [`parse_data`](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/utility.py#L82). Finally, the parsed results are used to find the location of the question (and the [next](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/processing.py#L57) question), through which the wanted question is [cropped](https://github.com/reths/Cloo-Bot/blob/main/src/imageman/processing.py#L82) and sent to the user on discord.
+
 ## Problems
+
+...
