@@ -1,4 +1,5 @@
 
+
 from typing import Tuple, Union
 
 from contest_data import contests
