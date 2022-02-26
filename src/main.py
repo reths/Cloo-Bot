@@ -3,7 +3,7 @@ from imageman.processing import *
 
 from discord.ext import commands
 from contest_data import contests
-from mparser import find_type, ContentType
+from message_parser import find_type, ContentType
 
 import discord, os, random
 
